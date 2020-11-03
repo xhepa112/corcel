@@ -32,12 +32,8 @@ class MenuItem extends Post
      */
     public function parent()
     {
-        if ($className = $this->getClassName()) {
-            return (new $className)->newQuery()
-                ->find($this->meta->_menu_item_menu_item_parent);
-        }
-
-        return null;
+        return (new self)->newQuery()
+            ->find($this->meta->_menu_item_menu_item_parent);
     }
 
     /**
